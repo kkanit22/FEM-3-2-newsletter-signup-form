@@ -1,0 +1,146 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+	--white: #FFFFFF;
+	--gray: #949494;
+	--blue-700: #36384D;
+	--blue-800: #242742;
+	--red: #FF6165;
+	--red-100: #FEE7E6;
+	--linear-gradient: linear-gradient(to right, #FF6A3A, #FF527B);
+	--header-small: 700 2.5rem "Roboto", sans-serif;
+	--label-small: 700 0.75rem / 1.5 "Roboto", sans-serif;
+}
+
+body {
+	background: var(--white);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	min-height: 100vh;
+	position: relative;
+}
+
+main {
+	display: flex;
+	flex-direction: column;
+	gap: 2.5rem;
+	height: 100%;
+	width: 87.2vw;
+
+	& img {
+		transform: translatex(-6.4vw);
+		width: 100vw;
+	}
+	
+	& article {
+
+		& .signup-text {
+			display: flex;
+			flex-direction: column;
+			gap: 1.5rem;
+		}
+
+		& ul {
+			list-style-image: url('./assets/images/icon-list.svg');
+			list-style-position: inside;
+		}
+	}
+
+	& form {
+		display: flex;
+		flex-direction: column;
+		position: relative;
+
+		& label {
+			color: var(--blue-800);
+			font: var(--label-small);
+		}
+
+		& input {
+			border: 1px solid var(--gray);
+			border-radius: 0.5rem;
+			margin-bottom: 1.5rem;
+			padding: 1rem 1.5rem;
+
+			&.invalid {
+				background: var(--red-100);
+				border: 1px solid var(--red);
+				color: var(--red);
+			}
+		}
+
+		& #email-error {
+			color: var(--red);
+			font: var(--label-small);
+			position: absolute;
+			top: 0;
+			right: 0;
+		}
+	}
+}
+
+#success-page {
+	background: var(--white);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+
+	& .success-card {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		height: 74vh;
+		width: 87.2vw;
+
+		& .success-message {
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			gap: 2rem;
+
+			& img {
+				height: 4rem;
+			}
+		}
+	}
+}
+
+
+h1 {
+	color: var(--blue-800);
+	font: var(--header-small);
+}
+
+button {
+	background: var(--blue-800);
+	border: 0;
+	border-radius: 0.5rem;
+	color: var(--white);
+	padding: 1rem 0;
+	text-align: center;
+	width: 100%;
+}
+
+.hidden {
+	display: none !important; 
+}
+
+.attribution {
+  font-size: 0.6875rem;
+	position: absolute;
+	bottom: 0.5rem;
+  text-align: center;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
