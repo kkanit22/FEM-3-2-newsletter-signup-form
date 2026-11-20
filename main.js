@@ -35,5 +35,3 @@ dismissButton.addEventListener('click', () => {
 	mainPage.classList.toggle("hidden");
 	successPage.classList.toggle("hidden");
 })
-
-// asdf@reg.com

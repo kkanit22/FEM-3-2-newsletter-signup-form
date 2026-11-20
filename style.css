@@ -5,140 +5,241 @@
 }
 
 :root {
-	--white: #FFFFFF;
-	--gray: #949494;
-	--blue-700: #36384D;
-	--blue-800: #242742;
-	--red: #FF6165;
-	--red-100: #FEE7E6;
-	--linear-gradient: linear-gradient(to right, #FF6A3A, #FF527B);
-	--header-small: 700 2.5rem "Roboto", sans-serif;
-	--label-small: 700 0.75rem / 1.5 "Roboto", sans-serif;
+  --white: #ffffff;
+  --gray: #949494;
+  --blue-700: #36384d;
+  --blue-800: #242742;
+  --red: #ff6165;
+  --red-100: #fee7e6;
+  --linear-gradient: linear-gradient(to right, #ff6a3a, #ff527b);
+  --header-small: 700 2.5rem / 1 "Roboto", sans-serif;
+	--header-large: 700 3.5rem / 1 "Roboto", sans-serif;
+	--paragraph: 400 1rem / 1.5 "Roboto", sans-serif;
+  --label: 700 0.75rem / 1.5 "Roboto", sans-serif;
 }
 
 body {
-	background: var(--white);
-	display: flex;
-	flex-direction: column;
+  background: var(--white);
+  display: flex;
+  flex-direction: column;
 	align-items: center;
-	min-height: 100vh;
-	position: relative;
+	justify-content: center;
+  min-height: 100vh;
+  position: relative;
+
+  @media screen and (min-width: 600px) {
+    background: var(--blue-700);
+  }
 }
 
 main {
-	display: flex;
-	flex-direction: column;
-	gap: 2.5rem;
-	height: 100%;
-	width: 87.2vw;
+  background: var(--white);
+	color: var(--blue-800);
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+	font: var(--paragraph);
+  height: 100%;
+  width: 87.2vw;
+	position: absolute;
 
-	& img {
+  @media screen and (min-width: 600px) {
+    border-radius: 2rem;
+    padding: 2.5rem;
+		position: relative;
+    width: 79.2%;
+  }
+
+	@media screen and (min-width: 1000px) {
+		flex-direction: row;
+		gap: 4rem;
+		align-items: center;
+		padding: 2rem;
+		width: 56.5rem;
+	}
+
+	& picture {
 		transform: translatex(-6.4vw);
 		width: 100vw;
-	}
-	
-	& article {
 
-		& .signup-text {
+		@media screen and (min-width: 600px) {
+			transform: translatex(0);
+			width: 100%;
+		}
+
+		@media screen and (min-width: 1000px) {
+			order: 1;
+			height: 37.0625rem;
+		}
+	}
+
+  & img {
+		display: block;
+    width: 100vw;
+
+    @media screen and (min-width: 600px) {
+      width: 100%;
+    }
+
+		@media screen and (min-width: 1000px) {
+			width: 25rem;
+		}
+  }
+
+  & article {
+    display: flex;
+    flex-direction: column;
+		flex-shrink: 0;
+    gap: 1.5rem;
+
+		@media screen and (min-width: 1000px) {
+			gap: 2rem;
+			order: 0;
+			height: 28.125rem;
+			width: 23.5rem;
+		}
+
+    & ul {
 			display: flex;
 			flex-direction: column;
-			gap: 1.5rem;
-		}
+			gap: 0.5rem;
+			justify-content: center;
 
-		& ul {
-			list-style-image: url('./assets/images/icon-list.svg');
-			list-style-position: inside;
-		}
-	}
+			& li {
+				display: flex;
+				align-items: center;
+				gap: 1rem;
 
-	& form {
-		display: flex;
-		flex-direction: column;
-		position: relative;
+				&::before {
+					background-image: url('./assets/images/icon-list.svg');
+					content: "";
+					flex-shrink: 0;
+					height: 1.3125rem;
+					width: 1.3125rem;
+				}
+			}
+    }
 
-		& label {
-			color: var(--blue-800);
-			font: var(--label-small);
-		}
+		& form {
+			display: flex;
+			flex-direction: column;
+			position: relative;
+	
+			& label {
+				color: var(--blue-800);
+				font: var(--label);
+				margin-bottom: 0.5rem;
+			}
+	
+			& input {
+				border: 1px solid var(--gray);
+				border-radius: 0.5rem;
+				font: var(--paragraph);
+				margin-bottom: 1.5rem;
+				padding: 1rem 1.5rem;
+	
+				@media screen and (min-width: 600px) {
+					margin-bottom: 1rem;
+				}
+	
+				&.invalid {
+					background: var(--red-100);
+					border: 1px solid var(--red);
+					color: var(--red);
+				}
+			}
 
-		& input {
-			border: 1px solid var(--gray);
-			border-radius: 0.5rem;
-			margin-bottom: 1.5rem;
-			padding: 1rem 1.5rem;
-
-			&.invalid {
-				background: var(--red-100);
-				border: 1px solid var(--red);
+			& input:is(:active, :focus) ~ button {
+				@media screen and (min-width: 1000px) {
+					background: var(--linear-gradient);
+				}
+			}
+	
+			& #email-error {
 				color: var(--red);
+				font: var(--label);
+				position: absolute;
+				top: 0;
+				right: 0;
 			}
 		}
-
-		& #email-error {
-			color: var(--red);
-			font: var(--label-small);
-			position: absolute;
-			top: 0;
-			right: 0;
-		}
-	}
+  }
 }
 
 #success-page {
-	background: var(--white);
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	height: 100%;
-	width: 100%;
-	position: absolute;
-	top: 0;
-	left: 0;
+  background: var(--white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
 
-	& .success-card {
-		display: flex;
-		flex-direction: column;
-		justify-content: space-between;
-		height: 74vh;
-		width: 87.2vw;
+	@media screen and (min-width: 600px) {
+		border-radius: 2.25rem;
+		height: 32.5rem;
+		width: 31.5rem;
+		padding: 4rem;
+	}
 
-		& .success-message {
-			display: flex;
-			flex-direction: column;
-			align-items: flex-start;
-			gap: 2rem;
+  & .success-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 74vh;
+    width: 87.2vw;
 
-			& img {
-				height: 4rem;
-			}
+		@media screen and (min-width: 600px) {
+			height: 100%;
+			width: 100%;
+		}
+
+    & .success-message {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 2rem;
+
+      & img {
+        height: 4rem;
+      }
+    }
+  }
+}
+
+h1 {
+  color: var(--blue-800);
+  font: var(--header-small);
+
+	@media screen and (min-width: 600px) {
+		font: var(--header-large);
+	}
+}
+
+button {
+  background: var(--blue-800);
+  border: 0;
+  border-radius: 0.5rem;
+  color: var(--white);
+	font: var(--paragraph);
+  padding: 1rem 0;
+  text-align: center;
+  width: 100%;
+
+	@media screen and (min-width: 1000px) {
+		&:is(:active, :focus, :hover) {
+			background: var(--linear-gradient);
 		}
 	}
 }
 
-
-h1 {
-	color: var(--blue-800);
-	font: var(--header-small);
-}
-
-button {
-	background: var(--blue-800);
-	border: 0;
-	border-radius: 0.5rem;
-	color: var(--white);
-	padding: 1rem 0;
-	text-align: center;
-	width: 100%;
-}
-
 .hidden {
-	display: none !important; 
+  display: none !important;
 }
 
 .attribution {
   font-size: 0.6875rem;
-	position: absolute;
-	bottom: 0.5rem;
+  position: absolute;
+  bottom: 0.25rem;
   text-align: center;
 }
 .attribution a {
