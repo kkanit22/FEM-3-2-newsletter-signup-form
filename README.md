@@ -62,7 +62,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [https://github.com/kkanit22/FEM-3-2-newsletter-signup-form](https://github.com/kkanit22/FEM-3-2-newsletter-signup-form)
-- Live Site URL: [[Add live site URL here](https://kkanit22.github.io/FEM-3-2-newsletter-signup-form/)](https://kkanit22.github.io/FEM-3-2-newsletter-signup-form/)
+- Live Site URL: [https://kkanit22.github.io/FEM-3-2-newsletter-signup-form/](https://kkanit22.github.io/FEM-3-2-newsletter-signup-form/)
 
 ## My process
 
@@ -101,6 +101,11 @@ I also want to call out another JavaScript DOM property I found particularly hel
 const successText = document.getElementById('success-text');
 successText.innerHTML = 'text <strong>' + emailAddress + '</strong> text';
 ```
+
+**Additions added after the submitted code was reviewed:**  
+I was reminded of the dangers of innerHTML and as suggested have adapted my solution to only change the `textContent` of the inner `<strong>` element to completely avoid innerHTML dangers. I have also left a no longer needed `escapeHtml(str)` function in the javascript so that I can refer back to it the next time I need to use `innerHTML` and have to escape it first.
+
+I have also learned a little more about how screen readers detect page updates. In particular, when I change the page from the sign-up form to the success page, adding `role="status"` should cause the screenreader to announce the change. I have also added this to the main element in case switching back to that would also not have been announced.
 
 ### Continued Development  
 I plan to spend more time learning about parsing and validating data from forms. In particular I worry that my solution does not sanitize the e-mail address to ensure there is no SQL injection or XML. While proper use of modern Java database packages provide protection, I may not always be working on the back-end or even know much about the language.

@@ -15,11 +15,11 @@
 </head>
 
 <body>
-	<main id="main-page">
+	<main id="main-page" role="status" aria-live="polite">
 		<picture>
 			<source srcset="./assets/images/illustration-sign-up-desktop.svg" media="(width >= 1000px)" />
 			<source srcset="./assets/images/illustration-sign-up-tablet.svg" media="(width >= 600px)" />
-			<img src="./assets/images/illustration-sign-up-mobile.svg" alt="Newsletter header" />
+			<img src="./assets/images/illustration-sign-up-mobile.svg" alt="" />
 		</picture>
 		<article>
 			<h1>Stay updated!</h1>
@@ -31,19 +31,19 @@
 			</ul>
 			<form id="newsletter-signup" novalidate>
 				<label for="email">Email address</label>
-				<input name="email" id="email" type="email" placeholder="email@company.com" aria-described-by="email-error"
+				<input name="email" id="email" type="email" placeholder="email@company.com" aria-describedby="email-error"
 					autocomplete="email" />
-				<span aria-live="polite" id="email-error" class="hidden">Valid email required</span>
+				<span aria-live="polite" id="email-error" class="email-error hidden">Valid email required</span>
 				<button class="signup-button">Subscribe to monthly newsletter</button>
 			</form>
 		</article>
 	</main>
-	<article id="success-page" class="hidden">
+	<article id="success-page" class="hidden" role="status" aria-live="polite">
 		<section class="success-card">
 			<div class="success-message">
 				<img src="./assets/images/icon-success.svg" alt="Success checkmark" />
-				<h1>Thanks for subscribing!</h2>
-				<p id="success-text"></p>
+				<h1 tabIndex="-1">Thanks for subscribing!</h1>
+				<p id="success-text">A confirmation email has been sent to <strong class="email-insertion"></strong>. Please open it and click the button inside to confirm your subscription.</p>
 			</div>
 			<button class="dismiss-success-card">Dismiss message</button>
 		</section>

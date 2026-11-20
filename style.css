@@ -155,7 +155,7 @@ main {
 				}
 			}
 	
-			& #email-error {
+			& .email-error {
 				color: var(--red);
 				font: var(--label);
 				position: absolute;
@@ -230,6 +230,10 @@ button {
 			background: var(--linear-gradient);
 		}
 	}
+}
+
+p {
+	font: var(--paragraph);
 }
 
 .hidden {
