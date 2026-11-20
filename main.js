@@ -5,9 +5,11 @@ const mainPage = document.getElementById("main-page");
 const successPage = document.getElementById("success-page");
 const dismissButton = document.querySelector(".dismiss-success-card");
 
-const showSuccess = () => {
+const showSuccess = (email) => {
 	mainPage.classList.toggle("hidden");
 	successPage.classList.toggle("hidden");
+	const successText = document.getElementById("success-text");
+	successText.innerHTML = "A confirmation email has been sent to <strong>" + email + "</strong>. Please open it and click the button inside to confirm your subscription."
 }
 
 const showFailure = () => {
@@ -17,7 +19,7 @@ const showFailure = () => {
 
 const validateForm = (data) => {
 	const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-	emailRegex.test(data.email) ? showSuccess() : showFailure();
+	emailRegex.test(data.email) ? showSuccess(data.email) : showFailure();
 }
 
 const handleSubmit = (e) => {
